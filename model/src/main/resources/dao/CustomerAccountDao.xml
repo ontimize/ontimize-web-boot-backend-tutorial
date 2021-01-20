@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JdbcEntitySetup xmlns="http://www.ontimize.com/schema/jdbc"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
+    catalog="" table="CUSTOMERACCOUNTS" datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
+   <DeleteKeys>
+      <Column>CUSTOMERACCOUNTID</Column>
+   </DeleteKeys>
+   <UpdateKeys>
+      <Column>CUSTOMERACCOUNTID</Column>
+   </UpdateKeys>
+   <GeneratedKey>CUSTOMERACCOUNTID</GeneratedKey>
+   <Queries>
+       <Query id="CUSTOMERACCOUNT">
+           <AmbiguousColumns>
+               <AmbiguousColumn name="CUSTOMERID" prefix="CA" databaseName="CUSTOMERID" />
+               <AmbiguousColumn name="ACCOUNTID" prefix="CA" databaseName="ACCOUNTID" />
+           </AmbiguousColumns>
+          <Sentence>
+               <![CDATA[
+               SELECT
+                  #COLUMNS# 
+               FROM
+                  ${mainschema}.CUSTOMERACCOUNTS AS CA
+                  INNER JOIN ${mainschema}.CUSTOMERS AS CU ON CA.CUSTOMERID = CU.CUSTOMERID
+                  INNER JOIN ${mainschema}.ACCOUNTS AS A ON CA.ACCOUNTID = A.ACCOUNTID
+               #WHERE#
+               #ORDER#
+            ]]>
+         </Sentence>
+      </Query>
+   </Queries>
+</JdbcEntitySetup>

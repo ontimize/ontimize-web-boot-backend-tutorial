@@ -54,7 +54,9 @@ ontimize:
          roleLoginColumn: USER_
          roleNameColumn: ROLENAME
 server:
-   port: 33333
+   servlet:
+      context-path: /bankmanager-jee/services/rest
+   port: 8080
    tomcat:
       uri-encoding: UTF-8
    compression:

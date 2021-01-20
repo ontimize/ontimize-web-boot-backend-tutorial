@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JdbcEntitySetup xmlns="http://www.ontimize.com/schema/jdbc"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
+    catalog="" table="ACCOUNTS" datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
+   <DeleteKeys>
+      <Column>ACCOUNTID</Column>
+   </DeleteKeys>
+   <UpdateKeys>
+      <Column>ACCOUNTID</Column>
+   </UpdateKeys>
+   <GeneratedKey>ACCOUNTID</GeneratedKey>
+    <Queries>
+       <Query id="ACCOUNTBALANCE">
+          <Sentence>
+               <![CDATA[
+               SELECT
+                  #COLUMNS# 
+               FROM
+                  VACCOUNTBALANCE
+               #WHERE#
+               #ORDER#
+            ]]>
+         </Sentence>
+      </Query>
+   </Queries>
+</JdbcEntitySetup>
