@@ -1,13 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<JdbcEntitySetup xmlns="http://www.ontimize.com/schema/jdbc"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
-    catalog="" table="EMPLOYEES" datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
-   <DeleteKeys>
-      <Column>EMPLOYEEID</Column>
-   </DeleteKeys>
-   <UpdateKeys>
-      <Column>EMPLOYEEID</Column>
-   </UpdateKeys>
-   <GeneratedKey>EMPLOYEEID</GeneratedKey>
+<JdbcEntitySetup
+	xmlns="http://www.ontimize.com/schema/jdbc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
+	catalog="" table="EMPLOYEES" datasource="mainDataSource"
+	sqlhandler="dbSQLStatementHandler">
+	<DeleteKeys>
+		<Column>EMPLOYEEID</Column>
+	</DeleteKeys>
+	<UpdateKeys>
+		<Column>EMPLOYEEID</Column>
+	</UpdateKeys>
+	<GeneratedKey>EMPLOYEEID</GeneratedKey>
+	<Queries>
+		<Query id="default">
+			<AmbiguousColumns>
+				<AmbiguousColumn name="EMPLOYEETYPEID"
+					prefix="ET" />
+				<AmbiguousColumn name="OFFICEID" prefix="B" />
+			</AmbiguousColumns>
+			<ValidColumns>
+				<Column>EMPLOYEEID</Column>
+				<Column>EMPLOYEETYPEID</Column>
+				<Column>EMPLOYEENAME</Column>
+				<Column>EMPLOYEESURNAME</Column>
+				<Column>EMPLOYEEADDRESS</Column>
+				<Column>EMPLOYEECOMMENTS</Column>
+				<Column>EMPLOYEESTARTDATE</Column>
+				<Column>EMPLOYEEPHOTO</Column>
+				<Column>EMPLOYEEEMAIL</Column>
+				<Column>OFFICEID</Column>
+				<Column>EMPLOYEEPHONE</Column>
+				<Column>LONGITUDE</Column>
+				<Column>LATITUDE</Column>
+				<Column>AGENDAXML</Column>
+				<Column>EMPLOYEETYPEID</Column>
+				<Column>EMPLOYEETYPENAME</Column>
+				<Column>EMPLOYEETYPEDESC</Column>
+				<Column>OFFICEID</Column>
+				<Column>NAME</Column>
+				<Column>ADDRESS</Column>
+				<Column>STARTDATE</Column>
+				<Column>DETAILS</Column>
+				<Column>PHONE</Column>
+				<Column>OFFICEXML</Column>
+				<Column>BRANCHPLAN</Column>
+				<Column>MAXLONGITUDE</Column>
+				<Column>MINLONGITUDE</Column>
+				<Column>MAXLATITUDE</Column>
+				<Column>MINLATITUDE</Column>
+				<Column>GEOMETRYLAYOUT</Column>
+			</ValidColumns>
+			<Sentence>
+		        <![CDATA[
+					SELECT
+						#COLUMNS#
+					FROM
+						PUBLIC.EMPLOYEES E
+					INNER JOIN PUBLIC.EMPLOYEETYPES ET ON
+						E.EMPLOYEETYPEID = ET.EMPLOYEETYPEID
+					INNER JOIN PUBLIC.BRANCHES B ON
+						E.OFFICEID = B.OFFICEID
+					#WHERE#
+					#ORDER#
+		         ]]>
+    		</Sentence>
+		</Query>
+	</Queries>
 </JdbcEntitySetup>
