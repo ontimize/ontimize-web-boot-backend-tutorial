@@ -139,4 +139,18 @@ public class CustomerService implements ICustomerService {
 	public EntityResult vCustomerAccountDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException {
 		return this.daoHelper.delete(this.customerAccountDao, keyValues);
 	}
+
+	@Override
+	public EntityResult longTaskQuery(Map<String, Object> keysValues, List<String> attributes)
+			throws OntimizeJEERuntimeException {
+		try {
+			new Thread().sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		EntityResult toRet = new EntityResult();
+		toRet.setCode(EntityResult.OPERATION_SUCCESSFUL);
+		return toRet;
+	}
 }

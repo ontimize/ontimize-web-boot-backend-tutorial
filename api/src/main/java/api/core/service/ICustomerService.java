@@ -30,5 +30,8 @@ public interface ICustomerService {
  // ---- VCUSTOMERACCOUNT ----
  public EntityResult vCustomerAccountQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException;
  public EntityResult vCustomerAccountDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
+ 
+ // -- LONG TASK --
+ public EntityResult longTaskQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException;
 
 }
