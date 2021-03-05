@@ -18,6 +18,7 @@ import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 import api.core.service.IBranchService;
 import model.core.dao.AccountDao;
 import model.core.dao.BranchDao;
+import model.core.dao.CustomerDao;
 
 @Lazy
 @Service("BranchService")
@@ -28,6 +29,8 @@ public class BranchService implements IBranchService {
 	private BranchDao branchDao;
 	@Autowired
 	private AccountDao accountDao;
+	@Autowired
+	private CustomerService customerService;
 	@Autowired
 	private DefaultOntimizeDaoHelper daoHelper;
 
@@ -96,6 +99,17 @@ public class BranchService implements IBranchService {
 
 		if (accountUpdate.getCode() == EntityResult.OPERATION_WRONG) {
 			throw new OntimizeJEERuntimeException(accountUpdate.getMessage());
+		}
+		
+		if (attributes.containsKey(CustomerDao.ATTR_ID)) {
+			Map<String, Object> insertCustomer = new HashMap<String, Object>();
+			insertCustomer.put(CustomerDao.ATTR_ID, attributes.get(CustomerDao.ATTR_ID));
+			insertCustomer.put(AccountDao.ATTR_ID, toRet.get(AccountDao.ATTR_ID));
+			EntityResult customerAccountInsert = customerService.customerAccountInsert(insertCustomer);
+			if (customerAccountInsert.getCode() == EntityResult.OPERATION_WRONG) {
+				throw new OntimizeJEERuntimeException(accountUpdate.getMessage());
+			}
+			
 		}
 
 		return toRet;
