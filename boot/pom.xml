@@ -14,7 +14,7 @@
 	<packaging>jar</packaging>
 
 	<properties>
-		<start-class>boot.core.ServerApplication</start-class>
+		<start-class>com.ontimize.bankmanager.ServerApplication</start-class>
 		<spring-boot.repackage.skip>false</spring-boot.repackage.skip>
 	</properties>
 
