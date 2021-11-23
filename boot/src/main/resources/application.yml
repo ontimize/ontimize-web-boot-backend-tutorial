@@ -8,39 +8,39 @@ ontimize:
    corsfilter:
       enabled: true
    globalcors:
-      corsConfigurations:
+      cors-configurations:
          '[/**]':
-            allowedOrigins: "*"
-            allowedHeaders: "*"
-            exposedHeaders: ["X-Auth-Token","Content-disposition","X-Requested-With"]
-            allowedMethods:
+            allowed-origins: "*"
+            allowed-headers: "*"
+            exposed-headers: ["X-Auth-Token","Content-disposition","X-Requested-With"]
+            allowed-methods:
             - GET
             - POST
             - PUT
             - OPTIONS
             - DELETE
    jdbc:
-      nameConvention: upper
+      name-convention: upper
       sqlhandler: hsqldb
-      sqlConditionProcessor:
-         uppperString: true
-         upperLike: true
+      sql-condition-processor:
+         uppper-string: true
+         upper-like: true
    security:
       mode: default
-      ignorePaths: /app/**
-      roleInformationService:
-         roleRepository: UserRoleDao
-         roleNameColumn: ROLENAME
-         serverPermissionQueryId: serverPermissions
-         serverPermissionNameColumn: PERMISSION_NAME
-         clientPermissionQueryId: clientPermissions
-         clientPermissionColumn: XMLCLIENTPERMISSION
-      userInformationService:
-         userRepository: UserDao
-         userLoginColumn: USER_
-         userPasswordColumn: PASSWORD
-         queryId: login
-         otherData:
+      ignore-paths: /app/**
+      role-information-service:
+         role-repository: UserRoleDao
+         role-name-column: ROLENAME
+         server-permission-query-id: serverPermissions
+         server-permission-name-column: PERMISSION_NAME
+         client-permission-query-id: clientPermissions
+         client-permission-column: XMLCLIENTPERMISSION
+      user-information-service:
+         user-repository: UserDao
+         user-login-colum: USER_
+         user-password-column: PASSWORD
+         query-id: login
+         other-data:
             - NAME
             - SURNAME
             - EMAIL
@@ -48,11 +48,11 @@ ontimize:
             - USERBLOCKED
             - LASTPASSWORDUPDATE
             - FIRSTLOGIN
-      userRoleInformationService:
-         userRoleRepository: UserRoleDao
-         queryId: userRole
-         roleLoginColumn: USER_
-         roleNameColumn: ROLENAME
+      user-role-information-service:
+         user-role-repository: UserRoleDao
+         query-id: userRole
+         role-login-column: USER_
+         role-name-column: ROLENAME
 server:
    servlet:
       context-path: /bankmanager-jee/services/rest
@@ -65,11 +65,11 @@ server:
 spring:
    datasource:
       driver-class-name: org.hsqldb.jdbcDriver
-      jdbcUrl: jdbc:hsqldb:hsql://localhost:9013/templateDB
+      jdbc-url: jdbc:hsqldb:hsql://localhost:9013/templateDB
       username: SA
       password:
-      initialSize: 10
-      testOnBorrow: true
+      initial-size: 10
+      test-on-borrow: true
    main:
       banner-mode: 'off'
    session:
