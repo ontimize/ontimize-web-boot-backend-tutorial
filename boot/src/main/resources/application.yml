@@ -37,7 +37,7 @@ ontimize:
          client-permission-column: XMLCLIENTPERMISSION
       user-information-service:
          user-repository: UserDao
-         user-login-colum: USER_
+         user-login-column: USER_
          user-password-column: PASSWORD
          query-id: login
          other-data:
