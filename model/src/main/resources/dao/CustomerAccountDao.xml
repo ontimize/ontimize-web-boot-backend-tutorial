@@ -15,6 +15,7 @@
            <AmbiguousColumns>
                <AmbiguousColumn name="CUSTOMERID" prefix="CA" databaseName="CUSTOMERID" />
                <AmbiguousColumn name="ACCOUNTID" prefix="CA" databaseName="ACCOUNTID" />
+               <AmbiguousColumn name="STARTDATE" prefix="A" databaseName="STARTDATE" />
            </AmbiguousColumns>
           <Sentence>
                <![CDATA[
