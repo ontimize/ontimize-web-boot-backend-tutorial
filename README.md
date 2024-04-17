@@ -17,4 +17,4 @@ This branch contains the project that generates the Ontimize Boot backend for On
 
 		mvn spring-boot:run
 	
-Use the following URL to access the [https://localhost:8080/bankmanager-jee/services/rest/](https://localhost:8080/bankmanager-jee/services/rest/) application 
+Use the following URL to access the [http://localhost:8080/bankmanager-jee/services/rest/](https://localhost:8080/bankmanager-jee/services/rest/) application 
